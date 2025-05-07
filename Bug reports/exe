@@ -1,0 +1,67 @@
+BUG 1
+Summary: Відсутні деякі зображення в каталозі товарів
+Pre-conditions: Користувач знаходиться на головній сторінці
+Steps: 
+1 В каталозі товарів переходимо у "Комплектуючі для ПК" - "Відеокарти"
+Expected result: Всі зображення на товарах присутні
+Actual result: Не всі зображення присутні на товарах
+Post-condition: Користувач не бачить візуально товар
+Environment: Google Chrome Версія 131.0.6778.69
+Type of bug: User Interface
+
+BUG 2
+Summary: Некоректний переклад слів на головній сторінці
+Pre-conditions: Користувач знаходиться на головній сторінці сайту
+Steps:
+1 ﻿﻿Натиснути на кнопку " Укр" у верхній правій частині сайту
+﻿﻿2 Перевірити чи коректний переклад
+3 Натиснути на кнопку " Рус" у верхній правій частині сайту
+4 Перевірити чи коректний переклад
+Expected result: Сторінку перекладає коректно 
+Actual result: Є певні неточності у перекладі
+Post-condition: Користувач може не правильно зрозуміти поданий матеріал
+Environment: Google Chrome Версія 131.0.6778.69
+Severity: Cosmetic
+Priority: Low
+Type of bug: Localization
+
+BUG 3
+Summary: Неактивні іконки соц мереж Telegram i Viber
+Pre-conditions: Користувач знаходиться на головній сторінці сайту
+Steps: 
+1 ﻿﻿Натискаємо на іконку Telegram
+2 ﻿﻿Натискаємо на іконку Viber
+3 Expected result: Відкривається вкладка із соц мережами
+Actual result: Кнопки неактивні
+Post-condition: Користувач не може побачити соц мережі даного сайту
+Environment: Google Chrome Версія 131.0.6778.69
+Severity: Low
+Priority: Medium
+Type of bug: Functional
+
+BUG 4
+Summary: На сторінці товарів кнопка "Кошик" зміщена
+Pre-conditions: Відкрити головну сторінку сайту
+Steps:
+1 Перейти в категорію товарів "Компʼютери - Ноутбуки"|
+Expected result: Кнопка "Кошик" розташована на всіх товарах на одному рівні
+Actual result: Кнопка "Кошик" розташована на всіх товарах не на одному рівні
+Post-condition: Візуально виглядає недопрацьовано
+Environment: Google Chrome Версія 131.0.6778.69
+Severity: Low
+Priority: Medium
+Type of bug: Alignment
+
+BUG 5 
+Summary: Текст "Нові категорії" у каталозі товарів некоректно вирівняний
+Pre-conditions: Користувач знаходиться на головній сторінці
+Steps: 
+1 В каталозі товарів знайти "Нові категорії"
+Expected result: Текст у назвах категорій вирівняний рівномірно
+Actual result: Візуальний стиль категорій порушений
+Post-condition: Користувачі відчувають труднощі з навігацією по каталогу через неакуратне відображення
+назв категорій
+Environment: Google Chrome Версія 131.0.6778.69
+Severity: Medium
+Priority: Low
+Type of bug: User Interface
