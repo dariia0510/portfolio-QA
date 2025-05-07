@@ -1,0 +1,100 @@
+create database d1 ;
+create database d2 ;
+drop database sys ;
+drop database d1 ;
+CREATE TABLE d1.Universities (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  uniname VARCHAR(100) NOT NULL,
+  city VARCHAR(50),
+  PRIMARY KEY (`id`)
+);
+INSERT INTO d1.Universities ( id , uniname , city ) VALUES 
+(1,"ЛНУ","Львів"),
+(2,"ДДПУ","Дрогобич"), 
+(3,"ЧНУ","Чернівці"), 
+(4, "КНУ","Київ"),
+(5,"УКУ","Львів"),
+(6,"ПДТУ","Дніпро");
+
+SELECT * FROM d1.Universities
+
+CREATE TABLE d1.Faculties (
+    Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    UniversityId INT UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`UniversityId`) REFERENCES d1.Universities(`id`)
+	    ON DELETE CASCADE
+        ON UPDATE CASCADE);
+        
+INSERT INTO d1.Faculties ( name , universityid ) VALUES 
+("Юридичний факультет",1),
+("Історичний факультет",2),
+("Факультет інформатики",2),
+("Факультет іноземних мов",3),
+("Економічний факультет",4),
+("Хімічний факультет",4),
+("Фізичний факультет",5),
+("Стоматологічний факультет",5),
+("Географічний факультет",6);
+
+SELECT * FROM d1.Faculties
+
+CREATE TABLE d1.Grooups (
+    Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    GroupNumber INT NOT NULL,
+    FacultyId INT UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`FacultyId`) REFERENCES d1.Faculties(`id`)
+	    ON DELETE CASCADE
+        ON UPDATE CASCADE);
+        
+INSERT INTO d1.Grooups ( GroupNumber,FacultyId ) VALUES 
+(101,1),
+(102,1),
+(201,2),
+(303,3),
+(304,3),
+(401,4),        
+(501,5);
+
+SELECT * FROM d1.Grooups
+
+CREATE TABLE d1.Students (
+    Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(30) NOT NULL,
+    Surname VARCHAR(30)  NOT NULL,
+    `Age`INT UNSIGNED NOT NULL,
+    `GrooupId`INT UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`GrooupId`) REFERENCES d1.Grooups(`id`)
+	    ON DELETE CASCADE
+        ON UPDATE CASCADE);
+        
+INSERT INTO d1.Students ( Name, Surname, Age, GrooupId ) VALUES 
+("Дарія","Іванич",18,1),
+("Олександр","Дирко",19,1),
+("Іван","Миркит",21,2),
+("Олена","Щиголь",21,3),
+("Андрій","Кузинкович",20,3),
+("Юрій","Алинко",21,4),
+("Катерина","Жинкович",21,4),
+("Ігор","Авенюк",22,5),
+("Ірина","Ширник",23,6),
+("Наталя","Кишко",23,6),
+("Микола","Ситник",23,7),
+("Марія","Наум",23,7);        
+
+
+SELECT * FROM d1.Students
+
+SELECT Name, Surname FROM d1.Students WHERE Name = 'Іван'
+
+SELECT GroupNumber FROM d1.Groups WHERE GroupNumber > 300
+
+SELECT uniname FROM d1.Universities WHERE uniname LIKE '%У%'
+
+SELECT * FROM d1.Students ORDER BY Name DESC
+
+
+SELECT * FROM d1.students INNER JOIN d1.grooups ON students.GrooupId = grooups.Id
